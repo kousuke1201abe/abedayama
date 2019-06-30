@@ -29,6 +29,8 @@
 
 /vendor/bundle
 
+/frontend/node_modules
+
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 /public/packs

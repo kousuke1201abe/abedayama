@@ -1,0 +1,25 @@
+{
+  "extends": ["tslint-config-prettier"],
+  "rulesDirectory": ["tslint-plugin-prettier"],
+  "rules": {
+    "prettier": true,
+    "max-line-length": [true, 120],
+    "object-shorthand-properties-first": false,
+    "radix": false,
+    "ter-arrow-parens": false,
+    "arrow-return-shorthand": false,
+    "no-boolean-literal-compare": true,
+    "import-name": false,
+    "no-consecutive-blank-lines": true,
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-module",
+      "check-separator",
+      "check-type",
+      "check-typecast"
+    ]
+  }
+}
