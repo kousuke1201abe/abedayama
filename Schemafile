@@ -1,1 +1,6 @@
 require "lib/monkey_patches/ridgepole.rb"
+
+require "schemata/quizzes.rb"
+require "schemata/quiz_questions.rb"
+require "schemata/quiz_quiestion_correct_answers.rb"
+require "schemata/quiz_quiestion_incorrect_answers.rb"
