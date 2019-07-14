@@ -1,5 +1,5 @@
 {
-  "name": "abedayama",
-  "private": true,
-  "dependencies": {}
+  "devDependencies": {
+    "material-design-icons-iconfont": "^5.0.1"
+  }
 }
