@@ -1,4 +1,4 @@
-module Types::InternalAPI
+module Types::PublicAPI
   class QuizType < Types::BaseObject
     field :name,     String,                              null: false
     field :quizzes, [::Types::PublicAPI::QuizType], null: false
