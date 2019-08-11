@@ -1,20 +1,37 @@
 <template>
   <v-app>
     <div class="helloworld">
-      <p>{{ name }}</p>
+      <p>{{ quizzes }}</p>
     </div>
-    <p>{{ message }}</p>
     <v-alert :value="true" type="success">This is a success alert.</v-alert>
   </v-app>
 </template>
 
 <script lang="ts">
+import gql from 'graphql-tag';
 import { Component, Vue } from 'vue-property-decorator';
 
-@Component
-export default class HelloWorld extends Vue {
-  name: string = 'Hello World';
-}
+const POSTS_QUERY = gql`
+  {
+    quizzes {
+      name
+    }
+  }
+`;
+
+export default {
+  name: 'helloworld',
+  data() {
+    return {
+      quizzes: POSTS_QUERY
+    };
+  },
+  apollo: {
+    quizzes: {
+      query: POSTS_QUERY
+    }
+  }
+};
 </script>
 
 <style lang="scss">

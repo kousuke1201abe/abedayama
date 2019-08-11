@@ -37,7 +37,7 @@
     "webpack-manifest-plugin": "^2.0.4"
   },
   "dependencies": {
-    "apollo-boost": "^0.3.1",
+    "apollo-boost": "^0.4.4",
     "apollo-cache-inmemory": "^1.6.3",
     "apollo-client": "^2.6.4",
     "apollo-link": "^1.2.12",
@@ -54,6 +54,7 @@
     "vue-loader": "^15.7.0",
     "vue-moment": "^4.0.0",
     "vue-property-decorator": "^8.2.1",
+    "vue-router": "^3.1.2",
     "vue-template-compiler": "^2.6.10",
     "vuetify": "^1.5.16"
   }
