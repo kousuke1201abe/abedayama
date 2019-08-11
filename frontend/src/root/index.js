@@ -15,7 +15,10 @@ Vue.use(VueRouter)
 Vue.use(Vuetify)
 
 const apolloClient = new ApolloClient({
-  uri: "http://localhost:3000/public_api/graphql"
+  uri: "http://localhost:3000/public_api/graphql",
+  headers: {
+    'X-CSRF-Token': document.querySelector('meta[name=csrf-token]').getAttribute('content'),
+  },
 });
 
 const apolloProvider = new VueApollo({
