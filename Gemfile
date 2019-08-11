@@ -17,6 +17,7 @@ gem 'graphql'
 gem 'graphql-batch'
 gem 'ridgepole'
 gem 'slim-rails'
+gem 'httparty'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
