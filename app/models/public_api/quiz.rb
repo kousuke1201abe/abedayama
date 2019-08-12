@@ -36,7 +36,7 @@ class PublicAPI::Quiz < ApplicationModel
     ).first["artistName"]
   end
 
-  def fetch_songs
+  def fetch_four_songs
     ITunesSearchAPI.search(
         :term    => name,
         :country => "jp",
@@ -44,17 +44,7 @@ class PublicAPI::Quiz < ApplicationModel
         :lang    => 'ja_jp',
         :attribute => "artistTerm",
         :limit  => '200'
-    )
-  end
-
-  def self.choose_four_songs(correct_song, all_songs)#ダミーの3曲と正解の1曲を持つ配列を返す
-    song_list = DUMMY_SONGS_NUM.times.map do
-      dummy_song = all_songs.sample
-      all_songs.delete(dummy_song)
-      dummy_song
-    end
-    song_list << correct_song
-    song_list.shuffle
+    ).sample(4)
   end
 
   def internal_quiz
@@ -62,14 +52,27 @@ class PublicAPI::Quiz < ApplicationModel
       ::Quiz.find_or_initialize_by(
         name: name
       ).tap do |quiz|
-        all_songs = fetch_songs
-        correct_song = all_songs.sample
-        quiz.questions.build(
-          content: correct_song["previewUrl"]
-        ).tap do |question|
-          question.build_correct_answer(
-            content: correct_song["trackName"]
-          )
+        5.times do
+          songs = fetch_four_songs
+
+          correct_song = songs.sample
+          songs.delete(correct_song)
+
+          quiz.questions.build(
+            content: correct_song["previewUrl"]
+          ).tap do |question|
+            question.build_correct_answer(
+              content: correct_song["trackName"]
+            )
+            3.times do
+              incorrect_song = songs.sample
+              songs.delete(incorrect_song)
+
+              question.incorrect_answers.build(
+                content: incorrect_song["trackName"]
+              )
+            end
+          end
         end
       end
   end

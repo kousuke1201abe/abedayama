@@ -19,6 +19,5 @@
 #
 
 class Quiz::Question::IncorrectAnswer < ApplicationRecord
-  belongs_to :quiz_question,
-             inverse_of: :quiz_question_incorrect_answers
+  belongs_to :quiz_question
 end
