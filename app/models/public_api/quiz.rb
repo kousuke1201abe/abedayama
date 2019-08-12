@@ -10,7 +10,9 @@ class PublicAPI::Quiz < ApplicationModel
   end
 
   def self.create!(args)
-    new(name: fetch_artist(args[:name])).tap(&:save!)
+    new(
+      name: fetch_artist(args[:name])
+    ).tap(&:save!)
   end
 
   def save!
@@ -27,23 +29,23 @@ class PublicAPI::Quiz < ApplicationModel
 
   def self.fetch_artist(name)
     ITunesSearchAPI.search(
-        :term    => name,
-        :country => "jp",
-        :media   => 'music',
-        :lang    => 'ja_jp',
-        :attribute => "artistTerm",
-        :limit  => '1'
+        term: name,
+        country: 'jp',
+        media: 'music',
+        lang: 'ja_jp',
+        attribute: "artistTerm",
+        limit: '1'
     ).first["artistName"]
   end
 
   def fetch_four_songs
     ITunesSearchAPI.search(
-        :term    => name,
-        :country => "jp",
-        :media   => 'music',
-        :lang    => 'ja_jp',
-        :attribute => "artistTerm",
-        :limit  => '200'
+        term: name,
+        country: 'jp',
+        media: 'music',
+        lang: 'ja_jp',
+        attribute: "artistTerm",
+        limit: '200'
     ).sample(4)
   end
 
