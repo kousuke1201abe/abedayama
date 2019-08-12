@@ -25,5 +25,6 @@ class Quiz::Question < ApplicationRecord
            foreign_key: :quiz_question_id
   has_one  :correct_answer,
            dependent: :destroy,
-           foreign_key: :quiz_question_id
+           foreign_key: :quiz_question_id,
+           inverse_of: :quiz_question
 end
