@@ -25,6 +25,8 @@ RSpec.configuration.include RSpec::JsonMatcher
 # Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 Dir[Rails.root.join('spec', 'shared_contexts', '**', '*.rb')].each { |f| require f }
 
+require 'factory_bot'
+
 RSpec.configure do |config|
   config.include ActiveSupport::Testing::TimeHelpers
 
