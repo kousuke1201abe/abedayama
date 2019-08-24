@@ -8,9 +8,11 @@ import ApolloClient from "apollo-boost"
 import config from '../../config/environments';
 import HelloWorld from './components/HelloWorld.vue';
 import router from '../router.js';
+import VueRouter from 'vue-router'
 
 Vue.use(VueApollo)
 Vue.use(Vuetify)
+Vue.use(VueRouter)
 
 const apolloClient = new ApolloClient({
   uri: `${config.API_URI}/public_api/graphql`,
@@ -25,10 +27,10 @@ const apolloProvider = new VueApollo({
 
 document.addEventListener('DOMContentLoaded', () => {
   new Vue({
+    router,
     apolloProvider,
     el: '#root',
     components: { HelloWorld },
     template: '<hello-world></hello-world>',
-    router
   })
 })
