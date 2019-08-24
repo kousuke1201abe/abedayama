@@ -1,4 +1,6 @@
 {
-  "root/components/HelloWorld.js": "/root/components/HelloWorld-bundle-ddc8b081df39acbcb5de.js",
-  "root/index.js": "/root/index-bundle-ddc8b081df39acbcb5de.js"
+  "root/components/HelloWorld.js": "/root/components/HelloWorld-bundle-37220b7b9bf40c09f1bd.js",
+  "root/components/Test.js": "/root/components/Test-bundle-37220b7b9bf40c09f1bd.js",
+  "root/index.js": "/root/index-bundle-37220b7b9bf40c09f1bd.js",
+  "router.js": "/router-bundle-37220b7b9bf40c09f1bd.js"
 }

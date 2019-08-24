@@ -3,19 +3,17 @@ import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css';
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import '@mdi/font/css/materialdesignicons.css'
-import VueRouter from 'vue-router'
 import VueApollo from 'vue-apollo'
 import ApolloClient from "apollo-boost"
+import config from '../../config/environments';
 import HelloWorld from './components/HelloWorld.vue';
+import router from '../router.js';
 
 Vue.use(VueApollo)
-
-Vue.use(VueRouter)
-
 Vue.use(Vuetify)
 
 const apolloClient = new ApolloClient({
-  uri: "http://localhost:3000/public_api/graphql",
+  uri: `${config.API_URI}/public_api/graphql`,
   headers: {
     'X-CSRF-Token': document.querySelector('meta[name=csrf-token]').getAttribute('content'),
   },
@@ -30,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     apolloProvider,
     el: '#root',
     components: { HelloWorld },
-    template: '<hello-world></hello-world>'
+    template: '<hello-world></hello-world>',
+    router
   })
 })
