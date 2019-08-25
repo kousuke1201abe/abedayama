@@ -1,6 +1,8 @@
 {
-  "root/components/HelloWorld.js": "/root/components/HelloWorld-bundle-a4e0569408a314d048a5.js",
-  "root/components/Test.js": "/root/components/Test-bundle-a4e0569408a314d048a5.js",
-  "root/index.js": "/root/index-bundle-a4e0569408a314d048a5.js",
-  "router.js": "/router-bundle-a4e0569408a314d048a5.js"
+  "common/api/graphql/apolloClient.js": "/common/api/graphql/apolloClient-bundle-cdd50caab1574c539bb3.js",
+  "console/components/App.js": "/console/components/App-bundle-cdd50caab1574c539bb3.js",
+  "console/components/Index.js": "/console/components/Index-bundle-cdd50caab1574c539bb3.js",
+  "console/components/Test.js": "/console/components/Test-bundle-cdd50caab1574c539bb3.js",
+  "console/index.js": "/console/index-bundle-cdd50caab1574c539bb3.js",
+  "router.js": "/router-bundle-cdd50caab1574c539bb3.js"
 }

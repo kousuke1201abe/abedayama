@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "root#index"
+  root to: "console#index"
 
   namespace :public_api do
     post "/graphql", to: "graphql#execute"
