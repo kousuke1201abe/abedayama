@@ -1,6 +1,6 @@
 <template>
-  <div>
+  <v-app>
     <router-link to="/tester">LINK tester</router-link>
     <router-view></router-view>
-  </div>
+  </v-app>
 </template>
