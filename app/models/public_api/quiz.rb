@@ -9,6 +9,10 @@ class PublicAPI::Quiz < ApplicationModel
     ::Quiz.all
   end
 
+  def self.find(id)
+    ::Quiz.find(id)
+  end
+
   def self.create!(args)
     new(
       name: fetch_artist(args[:name])
