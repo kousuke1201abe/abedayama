@@ -2,7 +2,7 @@ module Types::PublicAPI
   class QueryType < Types::BaseObject
     field :quizzes, [Types::PublicAPI::QuizType], null: true
     field :quiz,    Types::PublicAPI::QuizType,   null: true do
-      argument :id, Integer, required: true
+      argument :id, ID, required: true
     end
 
     def quizzes

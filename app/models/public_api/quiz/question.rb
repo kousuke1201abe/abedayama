@@ -2,8 +2,8 @@ class PublicAPI::Quiz::Question < ApplicationModel
   attribute :question
 
   def self.find(id)
-    raise ActiveRecord::RecordNotFound unless ::Quiz::Qusetion.exists?(id: id)
-    new(question: ::Quiz::Qusetion.find(id))
+    raise ActiveRecord::RecordNotFound unless ::Quiz::Question.exists?(id: id)
+    new(question: ::Quiz::Question.find(id))
   end
 
   def answers
@@ -13,3 +13,4 @@ class PublicAPI::Quiz::Question < ApplicationModel
     answers_hash << question.correct_answer.attributes.symbolize_keys.slice(:content)
     answers_hash.shuffle!
   end
+end

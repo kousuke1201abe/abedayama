@@ -1,7 +1,9 @@
 <template>
   <v-app>
     <div class="helloworld">
-      <p>{{ quizzes }}</p>
+      <p>{{ quiz }}</p>
+      <p>{{this.$route.params['id']}}</p>
+      <p>{{this.quizId}}</p>
     </div>
     <v-alert :value="true" type="success">This is a success alert.</v-alert>
   </v-app>
@@ -12,23 +14,35 @@ import gql from 'graphql-tag';
 import { Component, Vue } from 'vue-property-decorator';
 
 const POSTS_QUERY = gql`
-  {
-    quizzes {
+  query($id: ID!) {
+    quiz(id: $id) {
       name
+      questions {
+        content
+        answers {
+          content
+        }
+      }
     }
   }
 `;
 
 export default {
   name: 'helloworld',
+  created() {
+    this.quizId = this.$route.params['id'];
+  },
   data() {
     return {
-      quizzes: POSTS_QUERY
+      quiz: POSTS_QUERY
     };
   },
   apollo: {
-    quizzes: {
-      query: POSTS_QUERY
+    quiz: {
+      query: POSTS_QUERY,
+      variables: {
+        id: 7
+      }
     }
   }
 };
