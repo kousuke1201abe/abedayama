@@ -14,8 +14,9 @@ import gql from 'graphql-tag';
 import { Component, Vue } from 'vue-property-decorator';
 
 const POSTS_QUERY = gql`
-  query($id: ID!) {
-    quiz(id: $id) {
+  query($urlCode: String!) {
+    quiz(urlCode: $urlCode) {
+      urlCode
       name
       questions {
         content
@@ -41,7 +42,7 @@ export default {
     quiz: {
       query: POSTS_QUERY,
       variables: {
-        id: 7
+        id: 2
       }
     }
   }

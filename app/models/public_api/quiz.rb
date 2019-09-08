@@ -2,6 +2,7 @@ require 'itunes_search_api'
 
 class PublicAPI::Quiz < ApplicationModel
   attribute :name, :string
+  attribute :url_code, :string
 
   validates :name, presence: true
 
@@ -15,7 +16,8 @@ class PublicAPI::Quiz < ApplicationModel
 
   def self.create!(args)
     new(
-      name: fetch_artist(args[:name])
+      name: fetch_artist(args[:name]),
+      url_code: SecureRandom.uuid,
     ).tap(&:save!)
   end
 
@@ -56,7 +58,8 @@ class PublicAPI::Quiz < ApplicationModel
   def internal_quiz
     @quiz ||=
       ::Quiz.find_or_initialize_by(
-        name: name
+        name: name,
+        url_code: url_code,
       ).tap do |quiz|
         5.times do
           songs = fetch_four_songs

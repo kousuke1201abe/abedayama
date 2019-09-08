@@ -1,6 +1,7 @@
 quiz =
   ::Quiz.find_or_create_by!(
     name: "test quiz name",
+    url_code: SecureRandom.uuid
   )
 
 quiz_question_1 =

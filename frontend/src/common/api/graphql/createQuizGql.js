@@ -10,6 +10,7 @@ const createQuizGql = gql`
       }
     ) {
       quiz {
+        urlCode
         name
       }
     }

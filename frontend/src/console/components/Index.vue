@@ -15,7 +15,8 @@ export default {
   name: 'quiz',
   data: () => ({
     quiz: {
-      name: ''
+      name: '',
+      urlCode: ''
     },
     valid: true,
     nameRules: [
@@ -33,8 +34,8 @@ export default {
               name: this.quiz.name
             }
           })
-          .then(() => {
-            console.log('成功');
+          .then(res => {
+            this.quiz.urlCode = res.data.createQuiz.quiz.urlCode;
           })
           .catch(error => {
             console.error(error);

@@ -15,5 +15,6 @@
 FactoryBot.define do
   factory :quiz do
     sequence(:name) { |n| "test quiz name#{n}" }
+    sequence(:url_code) { |n| "test quiz url_code#{n}" }
   end
 end
