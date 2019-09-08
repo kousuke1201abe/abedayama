@@ -2,11 +2,7 @@
   <v-container>
     <v-form ref="form" v-model="valid" lazy-validation>
       <v-text-field v-model="quiz.name" :rules="nameRules" :counter="20" label="名前" required></v-text-field>
-      <v-btn
-        @click.native="createQuiz"
-        :to="{ name: 'quiz', params: { urlCode: 'e977c980-5d79-47fa-a1dc-d184f9f67e9e' } }"
-        :disabled="!valid"
-      >追加</v-btn>
+      <v-btn @click.native="createQuiz" :disabled="!valid">追加</v-btn>
       <v-btn @click="clear">クリア</v-btn>
     </v-form>
   </v-container>
@@ -39,7 +35,10 @@ export default {
             }
           })
           .then(res => {
-            this.quiz.urlCode = res.data.createQuiz.quiz.urlCode;
+            this.$router.push({
+              name: 'quiz',
+              params: { urlCode: res.data.createQuiz.quiz.urlCode }
+            });
           })
           .catch(error => {
             console.error(error);
