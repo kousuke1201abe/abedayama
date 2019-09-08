@@ -9,8 +9,8 @@ module Types::PublicAPI
       ::PublicAPI::Quiz.all
     end
 
-    def quiz(id:)
-      ::PublicAPI::Quiz.find(id)
+    def quiz(url_code:)
+      ::PublicAPI::Quiz.find_by(url_code)
     end
   end
 end

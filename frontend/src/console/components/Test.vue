@@ -2,8 +2,6 @@
   <v-app>
     <div class="helloworld">
       <p>{{ quiz }}</p>
-      <p>{{this.$route.params['id']}}</p>
-      <p>{{this.quizId}}</p>
     </div>
     <v-alert :value="true" type="success">This is a success alert.</v-alert>
   </v-app>
@@ -30,9 +28,7 @@ const POSTS_QUERY = gql`
 
 export default {
   name: 'helloworld',
-  created() {
-    this.quizId = this.$route.params['id'];
-  },
+  created() {},
   data() {
     return {
       quiz: POSTS_QUERY
@@ -42,7 +38,7 @@ export default {
     quiz: {
       query: POSTS_QUERY,
       variables: {
-        id: 2
+        urlCode: '0893e74b-b40a-4a83-83bb-b4508081d263'
       }
     }
   }

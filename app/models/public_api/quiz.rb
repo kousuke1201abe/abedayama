@@ -10,8 +10,8 @@ class PublicAPI::Quiz < ApplicationModel
     ::Quiz.all
   end
 
-  def self.find(id)
-    ::Quiz.find(id)
+  def self.find_by(url_code)
+    ::Quiz.find_by(url_code: url_code)
   end
 
   def self.create!(args)

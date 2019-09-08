@@ -2,7 +2,11 @@
   <v-container>
     <v-form ref="form" v-model="valid" lazy-validation>
       <v-text-field v-model="quiz.name" :rules="nameRules" :counter="20" label="名前" required></v-text-field>
-      <v-btn :disabled="!valid" @click="createQuiz">追加</v-btn>
+      <v-btn
+        @click.native="createQuiz"
+        :to="{ name: 'quiz', params: { urlCode: 'e977c980-5d79-47fa-a1dc-d184f9f67e9e' } }"
+        :disabled="!valid"
+      >追加</v-btn>
       <v-btn @click="clear">クリア</v-btn>
     </v-form>
   </v-container>
