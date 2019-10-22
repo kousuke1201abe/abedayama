@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "build": "webpack --config ./webpack.config.babel.js",
-    "start-dev": "webpack-dev-server --config ./webpack.config.babel.js"
+    "start-dev": "webpack-dev-server --config ./webpack.config.babel.js",
+    "heroku-postbuild": "npm-run-all clean build:production"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
