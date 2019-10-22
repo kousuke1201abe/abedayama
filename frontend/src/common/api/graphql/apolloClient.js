@@ -1,9 +1,10 @@
 import VueApollo from 'vue-apollo'
 import ApolloClient from "apollo-boost"
-import config from '../../../../config/environments'
+import { getApiUri } from '../uri';
+
 
 const apolloClient = new ApolloClient({
-  uri: `${config.API_URI}/public_api/graphql`,
+  uri: `${getApiUri()}/public_api/graphql`,
   headers: {
     'X-CSRF-Token': document.querySelector('meta[name=csrf-token]').getAttribute('content'),
   },
