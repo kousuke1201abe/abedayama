@@ -89,7 +89,7 @@ export default {
   },
 
   output: {
-    path: path.join(__dirname, '..', 'public/webpack'),
+    path: path.join(__dirname, '../..', 'public/webpack'),
     filename: '[name]-bundle-[hash].js',
     publicPath: '/'
   },
