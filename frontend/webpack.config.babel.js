@@ -91,7 +91,7 @@ export default {
           {
             loader: 'file-loader',
             options: {
-              publicPath: 'http://0.0.0.0:1212/'
+              publicPath: 'https://dx8a1ptwv40iv.cloudfront.net/'
             }
           }
         ]
