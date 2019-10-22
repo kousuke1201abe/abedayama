@@ -72,7 +72,7 @@ export default {
         this.quiz.name
       }の曲当てクイズに${
         this.quiz.correctNum
-      }問正解しました。チャレンジはこちらから&url=${getApiUri()}/${
+      }問正解しました。チャレンジはこちらから&url=${getApiUri()}/quiz/${
         this.quiz.urlCode
       }`;
       const option = 'status=1,width=818,height=400,top=100,left=100';

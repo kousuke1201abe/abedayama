@@ -113,7 +113,7 @@ export default {
     popUpTweetWindow() {
       const url = `https://twitter.com/intent/tweet?text=${
         this.quiz.name
-      }の曲当てクイズにチャレンジ&url=${getApiUri()}/${this.quiz.urlCode}`;
+      }の曲当てクイズにチャレンジ&url=${getApiUri()}/quiz/${this.quiz.urlCode}`;
       const option = 'status=1,width=818,height=400,top=100,left=100';
       window.open(url, 'twitter', option);
     },
