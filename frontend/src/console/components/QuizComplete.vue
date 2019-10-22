@@ -30,6 +30,7 @@
 <script lang="ts">
 import gql from 'graphql-tag';
 import { Component, Vue } from 'vue-property-decorator';
+import { getApiUri } from '../../common/api/uri';
 
 const ANSWERS_QUERY = gql`
   query($urlCode: String!, $answers: [String!]!) {
@@ -51,8 +52,7 @@ export default {
   name: 'helloworld',
   data: () => ({
     quiz: ANSWERS_QUERY,
-    message: '',
-    siteUrl: ''
+    message: ''
   }),
   apollo: {
     quiz: {
@@ -68,7 +68,13 @@ export default {
   },
   methods: {
     popUpTweetWindow() {
-      const url = `https://twitter.com/intent/tweet?text=${this.message}&url=${this.siteUrl}`;
+      const url = `https://twitter.com/intent/tweet?text=${
+        this.quiz.name
+      }の曲当てクイズに${
+        this.quiz.correctNum
+      }問正解しました。チャレンジはこちらから&url=${getApiUri()}/${
+        this.quiz.urlCode
+      }`;
       const option = 'status=1,width=818,height=400,top=100,left=100';
       window.open(url, 'twitter', option);
     }

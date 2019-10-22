@@ -6,7 +6,7 @@
           <v-flex md4 text-center>
             <v-form ref="form">
               <h3 class="ma-4">{{ quiz.name }}クイズ</h3>
-              <v-icon color="indigo">share</v-icon>
+              <v-icon @click="popUpTweetWindow" color="indigo">share</v-icon>
               <div v-for="(question, idx) in quiz.questions" v-bind:key="question.id" class="ma-4">
                 <v-card class="mx-auto pa-4" outlined>
                   <v-list-item-content>
@@ -43,6 +43,7 @@
 <script lang="ts">
 import gql from 'graphql-tag';
 import { Component, Vue } from 'vue-property-decorator';
+import { getApiUri } from '../../common/api/uri';
 
 const POSTS_QUERY = gql`
   query($urlCode: String!) {
@@ -108,6 +109,13 @@ export default {
           replyAnswers: this.replyAnswers
         }
       });
+    },
+    popUpTweetWindow() {
+      const url = `https://twitter.com/intent/tweet?text=${
+        this.quiz.name
+      }の曲当てクイズにチャレンジ&url=${getApiUri()}/${this.quiz.urlCode}`;
+      const option = 'status=1,width=818,height=400,top=100,left=100';
+      window.open(url, 'twitter', option);
     }
   }
 };
