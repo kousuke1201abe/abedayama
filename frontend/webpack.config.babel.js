@@ -85,17 +85,6 @@ export default {
           }
         ]
       },
-      {
-        test: /\.(jpg|png|gif|svg|ico)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              publicPath: 'https://dx8a1ptwv40iv.cloudfront.net/'
-            }
-          }
-        ]
-      }
     ]
   },
 
