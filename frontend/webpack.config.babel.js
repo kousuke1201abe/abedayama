@@ -16,7 +16,7 @@ const entries = targets.reduce((entries, target_path) => {
     [target_file_name.replace(
       target_file_extention,
       ''
-    )]: `./src/${target_file_name}`
+    )]: `./frontend/src/${target_file_name}`
   };
 }, {});
 
