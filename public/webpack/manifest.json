@@ -1,9 +1,10 @@
 {
-  "common/api/graphql/apolloClient.js": "/common/api/graphql/apolloClient-bundle-864e77c0490d48f31dd5.js",
-  "common/api/graphql/createQuizGql.js": "/common/api/graphql/createQuizGql-bundle-864e77c0490d48f31dd5.js",
-  "console/components/App.js": "/console/components/App-bundle-864e77c0490d48f31dd5.js",
-  "console/components/Index.js": "/console/components/Index-bundle-864e77c0490d48f31dd5.js",
-  "console/components/Quiz.js": "/console/components/Quiz-bundle-864e77c0490d48f31dd5.js",
-  "console/index.js": "/console/index-bundle-864e77c0490d48f31dd5.js",
-  "router.js": "/router-bundle-864e77c0490d48f31dd5.js"
+  "common/api/graphql/apolloClient.js": "/common/api/graphql/apolloClient-bundle-b72b5ed03c1c207f3d39.js",
+  "common/api/graphql/createQuizGql.js": "/common/api/graphql/createQuizGql-bundle-b72b5ed03c1c207f3d39.js",
+  "console/components/App.js": "/console/components/App-bundle-b72b5ed03c1c207f3d39.js",
+  "console/components/Index.js": "/console/components/Index-bundle-b72b5ed03c1c207f3d39.js",
+  "console/components/Quiz.js": "/console/components/Quiz-bundle-b72b5ed03c1c207f3d39.js",
+  "console/components/QuizComplete.js": "/console/components/QuizComplete-bundle-b72b5ed03c1c207f3d39.js",
+  "console/index.js": "/console/index-bundle-b72b5ed03c1c207f3d39.js",
+  "router.js": "/router-bundle-b72b5ed03c1c207f3d39.js"
 }

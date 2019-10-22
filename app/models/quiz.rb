@@ -15,4 +15,10 @@
 class Quiz < ApplicationRecord
   has_many :questions,
            dependent: :destroy
+
+  def calc_correct_num(args)
+    args[:answers].map.with_index do |answer, i|
+      answer == self.questions[i].correct_answer.content ? 1 : 0
+    end.inject(:+)
+  end
 end

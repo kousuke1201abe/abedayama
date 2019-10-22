@@ -1,11 +1,39 @@
 <template>
-  <v-container>
-    <v-form ref="form" v-model="valid" lazy-validation>
-      <v-text-field v-model="quiz.name" :rules="nameRules" :counter="20" label="名前" required></v-text-field>
-      <v-btn @click.native="createQuiz" :disabled="!valid">追加</v-btn>
-      <v-btn @click="clear">クリア</v-btn>
-    </v-form>
-  </v-container>
+  <v-content>
+    <v-container fluid fill-height>
+      <v-layout row justify-center>
+        <v-flex md4 text-center class="ma-10">
+          <h3>曲当てクイズジェネレータ</h3>
+          <v-form ref="form" v-model="valid" lazy-validation>
+            <v-text-field
+              v-model="quiz.name"
+              :rules="nameRules"
+              :counter="30"
+              label="アーティスト名を入力"
+              required
+            ></v-text-field>
+            <v-btn
+              @click.native="createQuiz"
+              :disabled="!valid"
+              depressed
+              v-show="!loading"
+              color="indigo"
+              class="white--text"
+            >クイズを作成</v-btn>
+            <v-btn
+              @click.native="createQuiz"
+              :disabled="!valid"
+              depressed
+              loading
+              v-show="loading"
+              color="indigo"
+              class="white--text"
+            >クイズを作成</v-btn>
+          </v-form>
+        </v-flex>
+      </v-layout>
+    </v-container>
+  </v-content>
 </template>
 
 <script>
@@ -18,15 +46,18 @@ export default {
       name: '',
       urlCode: ''
     },
+    loading: false,
     valid: true,
     nameRules: [
-      v => !!v || '名前は必須項目です',
-      v => (v && v.length <= 20) || '名前は20文字以内で入力してください'
+      v => !!v || 'アーティスト名を入力してください',
+      v =>
+        (v && v.length <= 30) || 'アーティスト名は30文字以内で入力してください'
     ]
   }),
   methods: {
     createQuiz: function() {
       if (this.$refs.form.validate()) {
+        this.loading = true;
         this.$apollo
           .mutate({
             mutation: createQuizGql,
@@ -35,6 +66,7 @@ export default {
             }
           })
           .then(res => {
+            this.loading = false;
             this.$router.push({
               name: 'quiz',
               params: { urlCode: res.data.createQuiz.quiz.urlCode }
@@ -44,9 +76,6 @@ export default {
             console.error(error);
           });
       }
-    },
-    clear: function() {
-      this.$refs.form.reset();
     }
   }
 };

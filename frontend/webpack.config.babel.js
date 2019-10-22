@@ -6,7 +6,7 @@ import VueLoaderPlugin from 'vue-loader/lib/plugin';
 
 const target_directory = path.join(__dirname, 'src');
 const targets = glob.sync(path.join(target_directory, '**/*.{js,ts,vue}'));
-
+const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 const entries = targets.reduce((entries, target_path) => {
   const target_file_name = path.relative(target_directory, target_path);
   const target_file_extention = path.extname(target_file_name);
@@ -55,8 +55,20 @@ export default {
         }
       },
       {
-        test: /\.scss$/,
-        use: ["style-loader", "css-loader", "sass-loader"]
+        test: /\.s(c|a)ss$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              implementation: require('sass'),
+              sassOptions: {
+                fiber: require('fibers'),
+              }
+            }
+          }
+        ]
       },
       {
         test: /\.css/,
@@ -108,7 +120,8 @@ export default {
     new ManifestPlugin({
       fileName: 'manifest.json',
       writeToFileEmit: true
-    })
+    }),
+    new VuetifyLoaderPlugin()
   ],
 
   devServer: {
