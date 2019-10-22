@@ -24,6 +24,6 @@ module WebpackBundleHelper
     # - Need to decide public file srever for staging and production environment.
     # - Need to implement the method to reflect the updates of the manifest file to web server when new static resourses are rebuilt and deployed.
     #['https://', ENV['CDN_ASSET_HOST'], manifest.fetch(entry)].join
-    ['https://musiq-quiz-generator.herokuapp.com', manifest.fetch(entry)].join
+    ['https://', 'dx8a1ptwv40iv.cloudfront.net', manifest.fetch(entry)].join
   end
 end
