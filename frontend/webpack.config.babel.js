@@ -91,7 +91,7 @@ export default {
   output: {
     path: path.join(__dirname, '../..', 'public/webpack'),
     filename: '[name]-bundle-[hash].js',
-    publicPath: '/'
+    publicPath: 'https://musiq-quiz-generator.firebaseapp.com/'
   },
 
   resolve: {
