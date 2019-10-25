@@ -91,7 +91,7 @@ export default {
   output: {
     path: path.join(__dirname, '../..', 'public/webpack'),
     filename: '[name]-bundle-[hash].js',
-    publicPath: 'https://musiq-quiz-generator.herokuapp.com/'
+    publicPath: 'https://musiq-quiz-generator.firebaseapp.com/'
   },
 
   resolve: {
