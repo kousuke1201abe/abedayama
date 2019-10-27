@@ -1,11 +1,11 @@
 {
-  "common/api/graphql/apolloClient.js": "/common/api/graphql/apolloClient-bundle-664c0dd304e6f3071cf0.js",
-  "common/api/graphql/createQuizGql.js": "/common/api/graphql/createQuizGql-bundle-664c0dd304e6f3071cf0.js",
-  "common/api/uri.js": "/common/api/uri-bundle-664c0dd304e6f3071cf0.js",
-  "console/components/App.js": "/console/components/App-bundle-664c0dd304e6f3071cf0.js",
-  "console/components/Index.js": "/console/components/Index-bundle-664c0dd304e6f3071cf0.js",
-  "console/components/Quiz.js": "/console/components/Quiz-bundle-664c0dd304e6f3071cf0.js",
-  "console/components/QuizComplete.js": "/console/components/QuizComplete-bundle-664c0dd304e6f3071cf0.js",
-  "console/index.js": "/console/index-bundle-664c0dd304e6f3071cf0.js",
-  "router.js": "/router-bundle-664c0dd304e6f3071cf0.js"
+  "common/api/graphql/apolloClient.js": "https://musiq-quiz-generator.firebaseapp.com/common/api/graphql/apolloClient-bundle-679053bae266a68e0e5f.js",
+  "common/api/graphql/createQuizGql.js": "https://musiq-quiz-generator.firebaseapp.com/common/api/graphql/createQuizGql-bundle-679053bae266a68e0e5f.js",
+  "common/api/uri.js": "https://musiq-quiz-generator.firebaseapp.com/common/api/uri-bundle-679053bae266a68e0e5f.js",
+  "console/components/App.js": "https://musiq-quiz-generator.firebaseapp.com/console/components/App-bundle-679053bae266a68e0e5f.js",
+  "console/components/Index.js": "https://musiq-quiz-generator.firebaseapp.com/console/components/Index-bundle-679053bae266a68e0e5f.js",
+  "console/components/Quiz.js": "https://musiq-quiz-generator.firebaseapp.com/console/components/Quiz-bundle-679053bae266a68e0e5f.js",
+  "console/components/QuizComplete.js": "https://musiq-quiz-generator.firebaseapp.com/console/components/QuizComplete-bundle-679053bae266a68e0e5f.js",
+  "console/index.js": "https://musiq-quiz-generator.firebaseapp.com/console/index-bundle-679053bae266a68e0e5f.js",
+  "router.js": "https://musiq-quiz-generator.firebaseapp.com/router-bundle-679053bae266a68e0e5f.js"
 }

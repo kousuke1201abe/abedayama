@@ -4,7 +4,6 @@
   "scripts": {
     "build": "webpack --config frontend/webpack.config.babel.js",
     "start-dev": "webpack-dev-server --config frontend/webpack.config.babel.js",
-    "heroku-postbuild": "webpack --config frontend/webpack.config.babel.js"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
