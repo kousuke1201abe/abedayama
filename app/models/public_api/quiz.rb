@@ -16,7 +16,7 @@ class PublicAPI::Quiz < ApplicationModel
 
   def self.create!(args)
     new(
-      name: fetch_artist(args[:name]),
+      name: args[:name],
       url_code: SecureRandom.uuid,
     ).tap(&:save!)
   end
@@ -33,17 +33,6 @@ class PublicAPI::Quiz < ApplicationModel
 
   private
 
-  def self.fetch_artist(name)
-    ITunesSearchAPI.search(
-      term: name,
-      country: 'jp',
-      media: 'music',
-      lang: 'ja_jp',
-      attribute: "artistTerm",
-      limit: '1'
-    ).first["artistName"]
-  end
-
   def fetch_four_songs
     ITunesSearchAPI.search(
       term: name,
@@ -52,7 +41,7 @@ class PublicAPI::Quiz < ApplicationModel
       lang: 'ja_jp',
       attribute: "artistTerm",
       limit: '200'
-    ).sample(4)
+    )
   end
 
   def internal_quiz
@@ -67,6 +56,7 @@ class PublicAPI::Quiz < ApplicationModel
           correct_song = songs.sample
           songs.delete(correct_song)
 
+          quiz.name = correct_song["artistName"]
           quiz.questions.build(
             content: correct_song["previewUrl"]
           ).tap do |question|

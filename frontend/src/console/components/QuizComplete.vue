@@ -6,6 +6,7 @@
           <v-flex md4 text-center>
             <h3 class="ma-4">{{ quiz.name }}クイズ</h3>
             <h3 class="ma-4">5問中{{ quiz.correctNum }}問正解しました</h3>
+            <v-btn to="/" depressed color="indigo" class="white--text">クイズを作成</v-btn>
             <v-icon @click="popUpTweetWindow" color="indigo">share</v-icon>
             <div v-for="(question, idx) in quiz.questions" v-bind:key="question.id" class="ma-4">
               <v-card class="mx-auto pa-4" outlined>

@@ -2,8 +2,7 @@
   <v-content>
     <v-container fluid fill-height>
       <v-layout row justify-center>
-        <v-flex md4 text-center class="ma-10">
-          <h3>曲当てクイズジェネレータ</h3>
+        <v-flex xs12 text-center class="ma-10">
           <v-form ref="form" v-model="valid" lazy-validation>
             <v-text-field
               v-model="quiz.name"
@@ -13,6 +12,7 @@
               required
             ></v-text-field>
             <v-btn
+              large
               @click.native="createQuiz"
               :disabled="!valid"
               depressed
@@ -21,6 +21,7 @@
               class="white--text"
             >クイズを作成</v-btn>
             <v-btn
+              large
               @click.native="createQuiz"
               :disabled="!valid"
               depressed
