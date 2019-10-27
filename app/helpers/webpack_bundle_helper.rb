@@ -19,10 +19,6 @@ module WebpackBundleHelper
   end
 
   def public_bundle_path(entry)
-    # TODO:
-    # - Need to set public file server to environment variables.
-    # - Need to decide public file srever for staging and production environment.
-    # - Need to implement the method to reflect the updates of the manifest file to web server when new static resourses are rebuilt and deployed.
     ['https://musiq-quiz-generator.firebaseapp.com', manifest.fetch(entry)].join
     #['http://localhost:1212', manifest.fetch(entry)].join
   end
