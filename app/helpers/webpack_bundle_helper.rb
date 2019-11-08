@@ -19,7 +19,7 @@ module WebpackBundleHelper
   end
 
   def public_bundle_path(entry)
-    ['https://musiq-quiz-generator.firebaseapp.com', manifest.fetch(entry)].join
-    #['http://localhost:1212', manifest.fetch(entry)].join
+    #['https://musiq-quiz-generator.firebaseapp.com', manifest.fetch(entry)].join
+    ['http://localhost:1212', manifest.fetch(entry)].join
   end
 end
