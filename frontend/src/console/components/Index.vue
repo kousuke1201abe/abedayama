@@ -37,14 +37,14 @@
               md="4"
               sm="4"
               xs="3"
-              v-for="quizu in quizzes"
-              v-bind:key="quizu.urlCode"
+              v-for="quiz in quizzes"
+              v-bind:key="quiz.urlCode"
               class="pa-2"
             >
-              <router-link v-bind:to="{ name : 'quiz', params : { urlCode: quizu.urlCode }}">
+              <router-link v-bind:to="{ name : 'quiz', params : { urlCode: quiz.urlCode }}">
                 <v-card class="mx-auto pa-4" outlined>
                   <v-list-item-content>
-                    <v-list-item-title>{{quizu.name}}クイズ</v-list-item-title>
+                    <v-list-item-title>{{quiz.name}}クイズ</v-list-item-title>
                   </v-list-item-content>
                 </v-card>
               </router-link>
@@ -57,22 +57,12 @@
 </template>
 
 <script>
-import gql from 'graphql-tag';
-import createQuizGql from '../../common/api/graphql/createQuizGql';
-
-const QUIZZES_QUERY = gql`
-  query {
-    quizzes {
-      name
-      urlCode
-    }
-  }
-`;
+import getLatestQuizzesGql from '../../common/api/graphql/getLatestQuizzesGql';
 
 export default {
   name: 'quiz',
   data: () => ({
-    quizzes: QUIZZES_QUERY,
+    quizzes: getLatestQuizzesGql,
     quiz: {
       name: '',
       urlCode: ''
@@ -111,7 +101,7 @@ export default {
   },
   apollo: {
     quizzes: {
-      query: QUIZZES_QUERY
+      query: getLatestQuizzesGql
     }
   }
 };

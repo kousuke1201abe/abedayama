@@ -40,50 +40,19 @@
   </v-app>
 </template>
 
-<script lang="ts">
-import gql from 'graphql-tag';
-import { Component, Vue } from 'vue-property-decorator';
+<script>
 import { getApiUri } from '../../common/api/uri';
-
-const POSTS_QUERY = gql`
-  query($urlCode: String!) {
-    quiz(urlCode: $urlCode) {
-      urlCode
-      name
-      questions {
-        content
-        answers {
-          content
-        }
-      }
-    }
-  }
-`;
-
-const ANSWERS_QUERY = gql`
-  query($urlCode: String!, $answers: [String!]) {
-    quiz(urlCode: $urlCode, answer: $answer) {
-      urlCode
-      name
-      questions {
-        content
-        answers {
-          content
-        }
-      }
-    }
-  }
-`;
+import getQuizGql from '../../common/api/graphql/getQuizGql';
 
 export default {
   name: 'helloworld',
   data: () => ({
-    quiz: POSTS_QUERY,
+    quiz: getQuizGql,
     replyAnswers: []
   }),
   apollo: {
     quiz: {
-      query: POSTS_QUERY,
+      query: getQuizGql,
       prefetch: ({ route }) => ({ urlCode: route.params.urlCode }),
       variables() {
         return { urlCode: this.$route.params.urlCode };
@@ -123,12 +92,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss">
-.helloworld {
-  font-size: 50px;
-  p {
-    color: red;
-  }
-}
-</style>

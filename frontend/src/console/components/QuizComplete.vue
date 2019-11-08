@@ -28,45 +28,16 @@
   </v-app>
 </template>
 
-<script lang="ts">
-import gql from 'graphql-tag';
-import { Component, Vue } from 'vue-property-decorator';
+<script>
 import { getApiUri } from '../../common/api/uri';
-
-const ANSWERS_QUERY = gql`
-  query($urlCode: String!, $answers: [String!]!) {
-    quiz(urlCode: $urlCode) {
-      urlCode
-      name
-      questions {
-        content
-        correctAnswer {
-          content
-        }
-      }
-      correctNum(answers: $answers)
-    }
-  }
-`;
+import clacCorrectAnswersGql from '../../common/api/graphql/calcCorrectAnswersGql';
 
 export default {
   name: 'helloworld',
   data: () => ({
-    quiz: ANSWERS_QUERY,
+    quiz: clacCorrectAnswersGql,
     message: ''
   }),
-  apollo: {
-    quiz: {
-      query: ANSWERS_QUERY,
-      prefetch: ({ route }) => ({ urlCode: route.params.urlCode }),
-      variables() {
-        return {
-          urlCode: this.$route.params.urlCode,
-          answers: this.$route.params.replyAnswers
-        };
-      }
-    }
-  },
   methods: {
     popUpTweetWindow() {
       const url = `https://twitter.com/intent/tweet?text=${
@@ -78,6 +49,18 @@ export default {
       }`;
       const option = 'status=1,width=818,height=400,top=100,left=100';
       window.open(url, 'twitter', option);
+    }
+  },
+  apollo: {
+    quiz: {
+      query: clacCorrectAnswersGql,
+      prefetch: ({ route }) => ({ urlCode: route.params.urlCode }),
+      variables() {
+        return {
+          urlCode: this.$route.params.urlCode,
+          answers: this.$route.params.replyAnswers
+        };
+      }
     }
   }
 };

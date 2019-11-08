@@ -1,11 +1,13 @@
 {
-  "common/api/graphql/apolloClient.js": "/common/api/graphql/apolloClient-bundle-a41a2d46bda573a5a5b9.js",
-  "common/api/graphql/createQuizGql.js": "/common/api/graphql/createQuizGql-bundle-a41a2d46bda573a5a5b9.js",
-  "common/api/uri.js": "/common/api/uri-bundle-a41a2d46bda573a5a5b9.js",
-  "console/components/App.js": "/console/components/App-bundle-a41a2d46bda573a5a5b9.js",
-  "console/components/Index.js": "/console/components/Index-bundle-a41a2d46bda573a5a5b9.js",
-  "console/components/Quiz.js": "/console/components/Quiz-bundle-a41a2d46bda573a5a5b9.js",
-  "console/components/QuizComplete.js": "/console/components/QuizComplete-bundle-a41a2d46bda573a5a5b9.js",
-  "console/index.js": "/console/index-bundle-a41a2d46bda573a5a5b9.js",
-  "router.js": "/router-bundle-a41a2d46bda573a5a5b9.js"
+  "common/api/graphql/apolloClient.js": "/common/api/graphql/apolloClient-bundle-ff24e2f314224f58589e.js",
+  "common/api/graphql/calcCorrectAnswersGql.js": "/common/api/graphql/calcCorrectAnswersGql-bundle-ff24e2f314224f58589e.js",
+  "common/api/graphql/createQuizGql.js": "/common/api/graphql/createQuizGql-bundle-ff24e2f314224f58589e.js",
+  "common/api/graphql/getLatestQuizzesGql.js": "/common/api/graphql/getLatestQuizzesGql-bundle-ff24e2f314224f58589e.js",
+  "common/api/uri.js": "/common/api/uri-bundle-ff24e2f314224f58589e.js",
+  "console/components/App.js": "/console/components/App-bundle-ff24e2f314224f58589e.js",
+  "console/components/Index.js": "/console/components/Index-bundle-ff24e2f314224f58589e.js",
+  "console/components/Quiz.js": "/console/components/Quiz-bundle-ff24e2f314224f58589e.js",
+  "console/components/QuizComplete.js": "/console/components/QuizComplete-bundle-ff24e2f314224f58589e.js",
+  "console/index.js": "/console/index-bundle-ff24e2f314224f58589e.js",
+  "router.js": "/router-bundle-ff24e2f314224f58589e.js"
 }
