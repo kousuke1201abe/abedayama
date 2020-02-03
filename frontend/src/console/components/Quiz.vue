@@ -5,8 +5,15 @@
         <v-layout row justify-center>
           <v-flex md4 text-center>
             <v-form ref="form">
-              <h3 class="ma-4">{{ quiz.name }}クイズ</h3>
-              <v-icon @click="popUpTweetWindow" color="indigo">share</v-icon>
+              <v-card class="mx-auto mt-5" max-width="450">
+                <v-img class="white--text align-end" height="450px" v-bind:src="quiz.imageUrl"></v-img>
+                <v-card-subtitle class="text-truncate overline">
+                  {{
+                  quiz.name
+                  }}
+                  <v-icon @click="popUpTweetWindow" color="teal lighten-1">share</v-icon>
+                </v-card-subtitle>
+              </v-card>
               <div v-for="(question, idx) in quiz.questions" v-bind:key="question.id" class="ma-4">
                 <v-card class="mx-auto pa-4" outlined>
                   <v-list-item-content>
@@ -24,14 +31,20 @@
                           :label="answer.content"
                           :value="answer.content"
                           @change="onchange(answer.content, idx)"
-                          color="indigo"
+                          color="teal lighten-1"
                         ></v-radio>
                       </v-radio-group>
                     </v-card-actions>
                   </v-list-item-content>
                 </v-card>
               </div>
-              <v-btn class="white--text" depressed color="indigo" @click.native="answerQuiz">回答</v-btn>
+              <v-btn
+                large
+                class="white--text m-5"
+                rounded
+                color="teal lighten-1"
+                @click.native="answerQuiz"
+              >回答する</v-btn>
             </v-form>
           </v-flex>
         </v-layout>

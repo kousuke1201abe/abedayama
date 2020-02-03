@@ -2,6 +2,7 @@ module Types::PublicAPI
   class QuizType < Types::BaseObject
     field :name,     String,                              null: false
     field :url_code, String,                              null: false
+    field :image_url, String,                             null: false
     field :quizzes, [::Types::PublicAPI::QuizType], null: false
     field :questions, [::Types::PublicAPI::Quiz::QuestionType], null: false
     field :correct_num, Integer, null: true do

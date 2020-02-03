@@ -4,10 +4,16 @@
       <v-container fluid fill-height>
         <v-layout row justify-center>
           <v-flex md4 text-center>
-            <h3 class="ma-4">{{ quiz.name }}クイズ</h3>
-            <h3 class="ma-4">5問中{{ quiz.correctNum }}問正解しました</h3>
-            <v-btn to="/" depressed color="indigo" class="white--text">クイズを作成</v-btn>
-            <v-icon @click="popUpTweetWindow" color="indigo">share</v-icon>
+            <v-card class="mx-auto mt-5" max-width="450">
+              <v-img class="white--text align-end" height="450px" v-bind:src="quiz.imageUrl"></v-img>
+              <v-card-subtitle class="text-truncate overline">
+                {{
+                quiz.name
+                }}
+                <v-icon @click="popUpTweetWindow" color="teal lighten-1">share</v-icon>
+                <h1 class="ma-4">5問中{{ quiz.correctNum }}問正解しました</h1>
+              </v-card-subtitle>
+            </v-card>
             <div v-for="(question, idx) in quiz.questions" v-bind:key="question.id" class="ma-4">
               <v-card class="mx-auto pa-4" outlined>
                 <v-list-item-content>
@@ -21,6 +27,13 @@
                 </v-list-item-content>
               </v-card>
             </div>
+            <v-btn
+              to="/"
+              large
+              rounded
+              color="teal lighten-1"
+              class="white--text m-10"
+            >新しいイントロドンを作成する</v-btn>
           </v-flex>
         </v-layout>
       </v-container>

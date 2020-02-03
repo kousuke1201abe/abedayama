@@ -6,7 +6,7 @@ module Types::PublicAPI
     end
 
     def quizzes
-      ::Quiz.order(created_at: :desc).limit(10)
+      ::Quiz.order(created_at: :desc).limit(30)
     end
 
     def quiz(url_code:)

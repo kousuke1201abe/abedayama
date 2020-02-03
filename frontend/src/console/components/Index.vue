@@ -1,52 +1,75 @@
 <template>
   <v-content>
     <v-container fluid fill-height>
-      <v-layout row justify-center>
+      <v-layout row>
         <v-flex xs12 text-center class="pa-10">
-          <v-form ref="form" v-model="valid" lazy-validation>
-            <v-text-field
-              v-model="quiz.name"
-              :rules="nameRules"
-              :counter="30"
-              label="アーティスト名を入力"
-              required
-            ></v-text-field>
-            <v-btn
-              large
-              @click.native="createQuiz"
-              :disabled="!valid"
-              depressed
-              v-show="!loading"
-              color="indigo"
-              class="white--text"
-            >クイズを作成</v-btn>
-            <v-btn
-              large
-              @click.native="createQuiz"
-              :disabled="!valid"
-              depressed
-              loading
-              v-show="loading"
-              color="indigo"
-              class="white--text"
-            >クイズを作成</v-btn>
+          <v-form ref="form" v-model="valid" lazy-validation class="mb-10">
+            <v-flex>
+              <v-text-field
+                class="mb-5"
+                v-model="quiz.name"
+                :rules="nameRules"
+                :counter="30"
+                label="アーティスト名を入力してください"
+                required
+              ></v-text-field>
+            </v-flex>
+            <v-flex>
+              <v-btn
+                large
+                @click.native="createQuiz"
+                :disabled="!valid"
+                rounded
+                v-show="!loading"
+                color="teal lighten-2"
+                class="white--text"
+              >イントロドンを作成</v-btn>
+              <v-btn
+                large
+                @click.native="createQuiz"
+                :disabled="!valid"
+                rounded
+                loading
+                v-show="loading"
+                color="teal lighten-2"
+                class="white--text"
+              >イントロドンを作成</v-btn>
+            </v-flex>
           </v-form>
-          <v-row dense class="mt-5">
+          <div class="mt-10 title font-weight-bold grey--text">最新のイントロドン</div>
+          <v-row dense class="mt-5 justify-start">
             <v-col
-              lg="4"
-              md="4"
-              sm="4"
+              lg="1"
+              md="1"
+              sm="1"
               xs="3"
               v-for="quiz in quizzes"
               v-bind:key="quiz.urlCode"
-              class="pa-2"
+              class="ma-4"
             >
-              <router-link v-bind:to="{ name : 'quiz', params : { urlCode: quiz.urlCode }}">
-                <v-card class="mx-auto pa-4" outlined>
-                  <v-list-item-content>
-                    <v-list-item-title>{{quiz.name}}クイズ</v-list-item-title>
-                  </v-list-item-content>
-                </v-card>
+              <router-link v-bind:to="{ name: 'quiz', params: { urlCode: quiz.urlCode } }">
+                <v-hover>
+                  <template v-slot:default="{ hover }">
+                    <v-card class="mx-auto" max-width="100">
+                      <v-img
+                        class="white--text align-end"
+                        height="100px"
+                        v-bind:src="quiz.imageUrl"
+                      ></v-img>
+                      <v-card-subtitle class="pb-1 pt-1 text-truncate overline">
+                        {{
+                        quiz.name
+                        }}
+                      </v-card-subtitle>
+
+                      <v-fade-transition>
+                        <v-overlay v-if="hover" absolute color="#036358">
+                          <v-btn class="overline">挑戦してみる</v-btn>
+                        </v-overlay>
+                      </v-fade-transition>
+                    </v-card>
+                  </template>
+                </v-hover>
               </router-link>
             </v-col>
           </v-row>
@@ -56,8 +79,15 @@
   </v-content>
 </template>
 
+<style lang="scss">
+a {
+  text-decoration: none;
+}
+</style>
+
 <script>
 import getLatestQuizzesGql from '../../common/api/graphql/getLatestQuizzesGql';
+import createQuizGql from '../../common/api/graphql/createQuizGql';
 
 export default {
   name: 'quiz',

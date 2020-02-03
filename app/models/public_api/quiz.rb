@@ -44,19 +44,33 @@ class PublicAPI::Quiz < ApplicationModel
     )
   end
 
+  def fetch_a_song
+    ITunesSearchAPI.search(
+      term: name,
+      country: 'jp',
+      media: 'music',
+      lang: 'ja_jp',
+      attribute: "artistTerm",
+      limit: '1'
+    ).first
+  end
+
   def internal_quiz
     @quiz ||=
       ::Quiz.find_or_initialize_by(
         name: name,
         url_code: url_code,
       ).tap do |quiz|
+        song = fetch_a_song
+        quiz.name = song["artistName"]
+        quiz.image_url = song["artworkUrl100"]
+
         5.times do
           songs = fetch_four_songs
 
           correct_song = songs.sample
           songs.delete(correct_song)
 
-          quiz.name = correct_song["artistName"]
           quiz.questions.build(
             content: correct_song["previewUrl"]
           ).tap do |question|
