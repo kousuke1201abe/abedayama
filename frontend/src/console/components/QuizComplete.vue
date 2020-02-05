@@ -10,7 +10,7 @@
                 {{
                 quiz.name
                 }}
-                <v-icon @click="popUpTweetWindow" color="teal lighten-1">share</v-icon>
+                <v-icon @click="popUpTweetWindow()" color="teal lighten-2">share</v-icon>
                 <h1 class="ma-4">5問中{{ quiz.correctNum }}問正解しました</h1>
               </v-card-subtitle>
             </v-card>
@@ -31,8 +31,8 @@
               to="/"
               large
               rounded
-              color="teal lighten-1"
-              class="white--text m-10"
+              color="teal lighten-2"
+              class="white--text m-10 font-weight-bold"
             >新しいイントロドンを作成する</v-btn>
           </v-flex>
         </v-layout>
@@ -55,7 +55,7 @@ export default {
     popUpTweetWindow() {
       const url = `https://twitter.com/intent/tweet?text=${
         this.quiz.name
-      }の曲当てクイズに${
+      }のイントロドンに5問中${
         this.quiz.correctNum
       }問正解しました。チャレンジはこちらから&url=${getApiUri()}/quiz/${
         this.quiz.urlCode
@@ -71,7 +71,7 @@ export default {
       variables() {
         return {
           urlCode: this.$route.params.urlCode,
-          answers: this.$route.params.replyAnswers
+          answers: this.$route.query.replyAnswers
         };
       }
     }

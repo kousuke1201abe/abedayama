@@ -11,7 +11,7 @@
                   {{
                   quiz.name
                   }}
-                  <v-icon @click="popUpTweetWindow" color="teal lighten-1">share</v-icon>
+                  <v-icon @click="popUpTweetWindow" color="teal lighten-2">share</v-icon>
                 </v-card-subtitle>
               </v-card>
               <div v-for="(question, idx) in quiz.questions" v-bind:key="question.id" class="ma-4">
@@ -31,7 +31,7 @@
                           :label="answer.content"
                           :value="answer.content"
                           @change="onchange(answer.content, idx)"
-                          color="teal lighten-1"
+                          color="teal lighten-2"
                         ></v-radio>
                       </v-radio-group>
                     </v-card-actions>
@@ -42,7 +42,7 @@
                 large
                 class="white--text m-5"
                 rounded
-                color="teal lighten-1"
+                color="teal lighten-2 font-weight-bold"
                 @click.native="answerQuiz"
               >回答する</v-btn>
             </v-form>
@@ -95,7 +95,7 @@ export default {
     popUpTweetWindow() {
       const url = `https://twitter.com/intent/tweet?text=${
         this.quiz.name
-      }の曲当てクイズにチャレンジ&url=${getApiUri()}/quiz/${this.quiz.urlCode}`;
+      }のイントロドンにチャレンジ&url=${getApiUri()}/quiz/${this.quiz.urlCode}`;
       const option = 'status=1,width=818,height=400,top=100,left=100';
       window.open(url, 'twitter', option);
     },

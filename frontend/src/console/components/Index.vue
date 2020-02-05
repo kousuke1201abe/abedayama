@@ -3,6 +3,12 @@
     <v-container fluid fill-height>
       <v-layout row>
         <v-flex xs12 text-center class="pa-10">
+          <div class="mb-5 display-1 font-weight-bold grey--text">
+            イントロドンジェネレーター
+            <v-icon size="45" color="teal lighten-2">headset</v-icon>
+          </div>
+          <div class="title font-weight-bold grey--text">アーティストの名前を入力するだけで、イントロドンを作成できます。</div>
+          <div class="mb-10 title font-weight-bold grey--text">好きなアーティストの曲をどれだけ知っているか、試してみましょう。</div>
           <v-form ref="form" v-model="valid" lazy-validation class="mb-10">
             <v-flex>
               <v-text-field
@@ -22,7 +28,7 @@
                 rounded
                 v-show="!loading"
                 color="teal lighten-2"
-                class="white--text"
+                class="white--text font-weight-bold"
               >イントロドンを作成</v-btn>
               <v-btn
                 large
@@ -32,10 +38,11 @@
                 loading
                 v-show="loading"
                 color="teal lighten-2"
-                class="white--text"
+                class="white--text font-weight-bold"
               >イントロドンを作成</v-btn>
             </v-flex>
           </v-form>
+          <v-divider></v-divider>
           <div class="mt-10 title font-weight-bold grey--text">最新のイントロドン</div>
           <v-row dense class="mt-5 justify-start">
             <v-col
@@ -64,7 +71,11 @@
 
                       <v-fade-transition>
                         <v-overlay v-if="hover" absolute color="#036358">
-                          <v-btn class="overline">挑戦してみる</v-btn>
+                          <v-btn class="overline">
+                            {{
+                            quiz.name
+                            }}のイントロドンに挑戦
+                          </v-btn>
                         </v-overlay>
                       </v-fade-transition>
                     </v-card>
